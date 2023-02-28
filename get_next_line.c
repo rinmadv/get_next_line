@@ -6,7 +6,7 @@
 /*   By: madavid <madavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 10:43:35 by madavid           #+#    #+#             */
-/*   Updated: 2023/02/28 18:17:13 by madavid          ###   ########.fr       */
+/*   Updated: 2023/02/28 19:44:29 by madavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ char	*get_next_line(int fd)
 		stash = ft_strjoin(stash, buffer);
 		readc = read(fd, buffer, BUFFER_SIZE);
 		if (readc == -1)
-			//gestion erreur
+			return (free (stash), NULL);
 		buffer[readc] = 0;
 		if (readc <= 0)
 		{

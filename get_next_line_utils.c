@@ -6,7 +6,7 @@
 /*   By: madavid <madavid@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/04 11:09:01 by madavid           #+#    #+#             */
-/*   Updated: 2023/01/08 22:49:21 by madavid          ###   ########.fr       */
+/*   Updated: 2023/02/28 18:12:24 by madavid          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,23 +26,25 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	int			i;
 	int			j;
+	const int	taille_s1 = ft_strlen(s1);
+	const int	taille_s2 = ft_strlen(s2);
 	char		*s_new;
 
 	i = 0;
 	j = 0;
 	if (!s1 || ! s2)
 		return (NULL);
-	s_new = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	s_new = malloc((taille_s1 + taille_s2 + 1) * sizeof(char));
 	if (s_new == NULL)
 		return (NULL);
-	while (i < ft_strlen(s1))
+	while (i < taille_s1)
 	{
 		s_new[i] = s1[i];
 		i++;
 	}
-	while (j < ft_strlen(s2))
+	while (j < taille_s2)
 		s_new[i++] = s2[j++];
-	if (ft_strlen(s1) != 0)
+	if (taille_s1 != 0)
 		free(s1);
 	return (s_new[i] = 0, s_new);
 }
